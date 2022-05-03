@@ -156,26 +156,22 @@ public class SimpleWebServer {
           // System.out.println(boundary);
           
           fw = new FileWriter(pathname);
-          StringBuilder payload = new StringBuilder();
       String boundary = br.readLine();
 
       String contentDispotion = br.readLine();
       String contentType = br.readLine();
       br.readLine();
-      System.out.println(boundary);
-      System.out.println(contentDispotion);
+
+
       System.out.println(contentType);
 
-
-
-      // br.readLine();
       StringBuilder result = new StringBuilder();
         while(br.ready()){
           result.append((char) br.read());
         }
 
       String content = result.toString().replace(boundary + "--", "");
-      fw.write(content.trim() + "\n");
+      fw.write(content);
       fw.close();
       osw.write("HTTP/1.0 201 Created");
     } catch (Exception e) {
