@@ -47,7 +47,7 @@ public class SimpleWebServer {
     /* used to read data from the client */
     BufferedReader br = new BufferedReader(new InputStreamReader(
         s.getInputStream()));
-
+  
     /* used to write data to the client */
     OutputStreamWriter osw = new OutputStreamWriter(s.getOutputStream());
 
@@ -155,23 +155,31 @@ public class SimpleWebServer {
           
           // System.out.println(boundary);
           
-          fw = new FileWriter(pathname);
+      fw = new FileWriter(pathname);
+      // content
       String boundary = br.readLine();
 
-      String contentDispotion = br.readLine();
+
+      String contentDisposition = br.readLine();
       String contentType = br.readLine();
       br.readLine();
-
-
+      
+      System.out.println(boundary);
+      System.out.println(boundary);
+      System.out.println(contentDisposition);
       System.out.println(contentType);
 
       StringBuilder result = new StringBuilder();
         while(br.ready()){
-          result.append((char) br.read());
+          String line = br.readLine();
+          if(line.equals(boundary + "--")){
+              break;
+          } else {
+            result.append(line + '\n');
+          }
         }
 
-      String content = result.toString().replace(boundary + "--", "");
-      fw.write(content);
+      fw.write(result.toString().trim());
       fw.close();
       osw.write("HTTP/1.0 201 Created");
     } catch (Exception e) {
