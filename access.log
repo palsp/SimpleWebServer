@@ -1,0 +1,3 @@
+[0:0:0:0:0:0:0:1]:58168 - - [ 2022/05/05 23:45:41 ] "GET index.html" 200 " Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36"
+[0:0:0:0:0:0:0:1]:58201 - - [ 2022/05/05 23:45:47 ] "PUT /app.txt" 201 " Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36"
+[0:0:0:0:0:0:0:1]:58342 - - [ 2022/05/05 23:46:14 ] "PUT /HelloWorld.java" 400 " Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36"

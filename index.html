@@ -15,8 +15,8 @@
     <div>
       <h2>5.2.2</h2>
       <div class="half-width">
-        <input id="ssh-key" type="file" placeholder="Enter your SSH Key">
-        <button class="submit-ssh-key" type="submit">Send into auth keys (with header)</button>
+        <input id="input-file" type="file" accept=".txt">
+        <button class="submit-file" type="submit">Submit</button>
       </div>
       <div>
         <p>Um die Header nicht in der Datei zu haben nutze den Telnet Command: </p><br>
@@ -38,14 +38,14 @@
 
 
 
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script>
-      $('.submit-ssh-key').on('click', function(e){
+      $('.submit-file').on('click', function(e){
         e.preventDefault();
 
         var data = new FormData()
 
-        var file = document.getElementById('ssh-key').files[0]
+        var file = document.getElementById('input-file').files[0]
         data.append('file', file)
 
         var promise = $.ajax({
